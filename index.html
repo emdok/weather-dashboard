@@ -11,27 +11,44 @@
 </head>
 <body>
     <header>
-        <h1>Weather Dashboard</h1>
+        <h1 class="display-1 text-center">Weather Dashboard</h1>
     </header>
     <main>
-        <div class="sidebar">
-            <div class="search">
-                <form>
-                    <div>
-                        <input type="search" id="city-search" name="city-search" placeholder="City Name">
-                        <button class="btn btn-primary">Search</button>
+        <div class="container">
+            <div class="row">
+                <div class="sidebar col-3">
+                    <div class="search row">
+                        <div class="container">
+                            <form class="row">
+                                <input type="search" id="city-search" name="city-search" placeholder="City Name">
+                                <button class="btn btn-primary">Search</button>
+                            </form>
+                            <div class="row">
+                                <ul class="recent-search">
+
+                                </ul>
+                            </div>
+                        </div>
                     </div>
-                </form>
+
+                </div>
+                <div class="col-9">
+                    <div class="container">
+                        <div class="row">
+                            <div class="current-weather">
+    
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="5-day-weather">
+                                <ul>
+        
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="recent-search">
-
-            </div>
-        </div>
-        <div class="current-weather">
-
-        </div>
-        <div class="5-day-weather">
-
         </div>
     </main>
 <script src="assets/js/scripts.js"></script>    
