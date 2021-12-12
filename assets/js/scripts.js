@@ -63,25 +63,10 @@ var currentWeatherDisplay = function (data, city) {
     var currentCityEl = document.getElementById("city-name")
     currentCityEl.innerHTML = `<span>${city} ${formatDate(date)}<img src=./assets/icons/` + icon + `.png></span></p>`;
 
-    var currentTempEl = document.createElement("li");
-    currentTempEl.className = "list-group-item";
-    currentTempEl.textContent = "Temp:" + " " + temp + "F";
-    currentWeatherEl.appendChild(currentTempEl);
-
-    var currentWindEl = document.createElement("li");
-    currentWindEl.className = "list-group-item";
-    currentWindEl.textContent = "Wind:" + " " + wind;
-    currentWeatherEl.appendChild(currentWindEl);
-
-    var currentHumidityEl = document.createElement("li");
-    currentHumidityEl.className = "list-group-item";
-    currentHumidityEl.textContent = "Humiditiy:" + " " + humidity;
-    currentWeatherEl.appendChild(currentHumidityEl);
-
-    var currentUviEl = document.createElement("li");
-    currentUviEl.className = "list-group-item";
-    currentUviEl.textContent = "UV Index:" + " " + uvi;
-    currentWeatherEl.appendChild(currentUviEl);
+    currentWeatherEl.innerHTML = `<li class="list-group-item">Temp: ${temp} F</li>
+    <li class="list-group-item">Wind: ${wind}</li>
+    <li class="list-group-item">Humidity: ${humidity}</li
+    ><li class="list-group-item">UV Index: ${uvi}</li>`;
 };
 
 var fiveDayForecastDisplay = function(data) {
