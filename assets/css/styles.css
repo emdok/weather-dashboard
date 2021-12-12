@@ -11,10 +11,6 @@ form {
     border-bottom: 1px solid;
 }
 
-input {
-    margin-bottom: 20px;
-}
-
 ul {
     padding-left: 0px;
 }
@@ -25,4 +21,9 @@ ul {
 
 .full-width {
     width: 100%;
+}
+
+.no-margin {
+    margin-left: 0px;
+    margin-right: 0px;
 }

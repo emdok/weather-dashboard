@@ -63,7 +63,7 @@ var currentWeatherDisplay = function (data, city) {
     var currentCityEl = document.getElementById("city-name")
     currentCityEl.innerHTML = `<span>${city} ${formatDate(date)}<img src=./assets/icons/` + icon + `.png></span></p>`;
 
-    currentWeatherEl.innerHTML = `<li class="list-group-item">Temp: ${temp} F</li>
+    currentWeatherEl.innerHTML += `<li class="list-group-item">Temp: ${temp} F</li>
     <li class="list-group-item">Wind: ${wind}</li>
     <li class="list-group-item">Humidity: ${humidity}</li
     ><li class="list-group-item">UV Index: ${uvi}</li>`;
@@ -80,7 +80,7 @@ var fiveDayForecastDisplay = function(data) {
         var wind = data.daily[i].wind_speed;
 
         console.log(date);
-        cardDeckEl.innerHTML += `<div class="card">
+        cardDeckEl.innerHTML += `<div class="card no-margin">
         <div class="card-body">
           <h5 class="card-title">${date}</h5>
           <img class="card-img-top" src="./assets/icons/${icon}.png" alt="Card image cap">
@@ -144,5 +144,3 @@ var recentSearchClickHandler = function(event) {
 // listen for submit button click
 cityFormEl.addEventListener("submit", formSubmitHandler);
 searchHistoryEl.addEventListener("click", recentSearchClickHandler);
-
-
