@@ -1,0 +1,20 @@
+header {
+    padding: 50px;
+    margin-bottom: 50px;
+    background: 
+        linear-gradient(217deg, rgba(56,145,166,.8), rgba(255,0,0,0) 70.71%),
+        linear-gradient(127deg, rgba(213,236,212,.8), rgba(0,255,0,0) 70.71%),
+        linear-gradient(336deg, rgba(149,113,134,.8), rgba(0,0,255,0) 70.71%);
+}
+
+form {
+    border-bottom: 1px solid;
+}
+
+input {
+    margin-bottom: 20px;
+}
+
+button {
+    margin-bottom: 20px;
+}

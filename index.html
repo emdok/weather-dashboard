@@ -19,6 +19,7 @@
                 <div class="sidebar col-3">
                     <div class="search row">
                         <div class="container">
+                            <h2 class="row">Search for a City:</h2>
                             <form class="row" id ="city-form">
                                 <input type="search" id="city-search" name="city-search" placeholder="City Name">
                                 <button class="btn btn-primary">Search</button>
@@ -35,13 +36,15 @@
                 <div class="col-9">
                     <div class="container">
                         <div class="row">
-                            <div class="current-weather">
-    
+                            <div class="current-weather card">
+                                <ul id="current-weather-list">
+
+                                </ul>
                             </div>
                         </div>
                         <div class="row">
                             <div class="5-day-weather">
-                                <ul>
+                                <ul id="5-day-weather-list">
         
                                 </ul>
                             </div>
@@ -51,6 +54,7 @@
             </div>
         </div>
     </main>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
 <script src="assets/js/scripts.js"></script>    
 </body>
 </html>

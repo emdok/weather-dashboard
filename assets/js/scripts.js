@@ -1,6 +1,7 @@
 var APIKey = '53fc86921cad0b3c977522d6827674ab';
 var cityInputEl = document.querySelector("#city-search");
 var cityFormEl = document.querySelector("#city-form");
+var currentWeatherEl = document.getElementById("current-weather-list");
 
 
 // Get city and locate lat and lon values
@@ -16,7 +17,7 @@ var getCityCoord = function(city) {
             alert("Error: Current weather for City not found");
         }
     });
-}
+};
 
 // Update city to lat and lon value, return forecast for city
 var getForecastByCity = function(data) {
@@ -26,13 +27,58 @@ var getForecastByCity = function(data) {
         if (response.ok) {
             response.json().then(function (data) {
                 console.log(data);
+                currentWeatherDisplay(data);
             });
         } else {
             alert("Error: Forecast for City not found");
         }
 });
+};
+
+// Create list for current weather
+var currentWeatherDisplay = function(data) {
+    var cityName = data.current;
+    var date = data.current.dt;
+    var temp = data.current.temp;
+    var wind = data.current.wind_speed;
+    var humidity = data.current.humidity;
+    var uvi = data.current.uvi;
+    var icon = data.current.weather[0].icon;
+
+    var currentCityEl = document.createElement("li");
+    currentCityEl.textContent = cityName + " " + formatDate(date);
+    currentCityEl.innerHTML = '<p>' + cityName + " " + formatDate(date) +'<span><img src=./assets/icons/' + icon + '.png></span></p>';
+    currentWeatherEl.appendChild(currentCityEl);
+
+
+    var currentTempEl = document.createElement("li");
+    currentTempEl.textContent = temp;
+    currentWeatherEl.appendChild(currentTempEl);
+
+    var currentWindEl = document.createElement("li");
+    currentWindEl.textContent = wind;
+    currentWeatherEl.appendChild(currentWindEl);
+
+    var currentHumidityEl = document.createElement("li");
+    currentHumidityEl.textContent = humidity;
+    currentWeatherEl.appendChild(currentHumidityEl);
+
+    var currentUviEl = document.createElement("li");
+    currentUviEl.textContent = uvi;
+    currentWeatherEl.appendChild(currentUviEl);
 }
 
+// format Unix TimeCode to Human Readable Format
+var formatDate = function(date) {
+const milliseconds = date * 1000
+const dateObject = new Date(milliseconds)
+let options = { month: 'numeric', day: 'numeric', year: 'numeric'};
+const humanDateFormat = dateObject.toLocaleString("en-US", options)
+
+return humanDateFormat;
+}
+
+// handle search button click
 var formSubmitHandler = function (event) {
     event.preventDefault();
 
@@ -46,6 +92,7 @@ var formSubmitHandler = function (event) {
     }
 };
 
+// listen for submit button click
 cityFormEl.addEventListener("submit", formSubmitHandler);
 
 
