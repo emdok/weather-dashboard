@@ -35,7 +35,7 @@ var getCityCoord = function (city) {
 
 // Update city to lat and lon value, return forecast for city
 var getForecastByCity = function (data, city) {
-    var forecastQueryURL = "https://api.openweathermap.org/data/2.5/onecall?lat=" + data[0].lat + "&lon=" + data[0].lon + "&units=imperial&appid=" + APIKey;
+    var forecastQueryURL = "http://api.openweathermap.org/data/2.5/onecall?lat=" + data[0].lat + "&lon=" + data[0].lon + "&units=imperial&appid=" + APIKey;
 
     fetch(forecastQueryURL).then(function (response) {
         if (response.ok) {
