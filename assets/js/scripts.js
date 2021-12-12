@@ -11,7 +11,7 @@ var recentSearchHistory = function() {
         recentSearch = JSON.parse(localStorage.getItem("city"));
 
         for (var i = 0; i < recentSearch.length; i++) {
-            searchHistoryEl.innerHTML += `<li>${recentSearch[i]}</li>`
+            searchHistoryEl.innerHTML += `<button type="button" class="list-group-item list-group-item-action">${recentSearch[i]}</button></li>`
         };
     }
 };
@@ -102,6 +102,7 @@ var fiveDayForecastDisplay = function(data) {
           <p>Temp: ${temp}</p>
           <p>Wind: ${wind}</p>
           <p>Humidity: ${humidity}</p>
+          </div>
         </div>`
     }
 }
@@ -140,7 +141,23 @@ var formSubmitHandler = function (event) {
     }
 };
 
+var recentSearchClickHandler = function(event) {
+    event.preventDefault();
+
+    currentWeatherEl.innerHTML = "";
+    var city = event.target.innerHTML;
+
+    getCityCoord(city);
+    cityInputEl.value = "";
+    var currentCityEl = document.createElement("li");
+    currentCityEl.className = "list-group-item h2";
+    currentCityEl.id = "city-name";
+    currentCityEl.textContent = city;
+    currentWeatherEl.appendChild(currentCityEl);
+}
+
 // listen for submit button click
 cityFormEl.addEventListener("submit", formSubmitHandler);
+searchHistoryEl.addEventListener("click", recentSearchClickHandler);
 
 
