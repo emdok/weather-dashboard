@@ -4,6 +4,7 @@ var cityFormEl = document.querySelector("#city-form");
 var currentWeatherEl = document.getElementById("current-weather-list");
 
 
+
 // Get city and locate lat and lon values
 var getCityCoord = function(city) {
     var cityCoordQueryURL = "http://api.openweathermap.org/geo/1.0/direct?q=" + city + "&limit=1&appid=" + APIKey;
@@ -37,7 +38,6 @@ var getForecastByCity = function(data) {
 
 // Create list for current weather
 var currentWeatherDisplay = function(data) {
-    var cityName = data.current;
     var date = data.current.dt;
     var temp = data.current.temp;
     var wind = data.current.wind_speed;
@@ -45,26 +45,24 @@ var currentWeatherDisplay = function(data) {
     var uvi = data.current.uvi;
     var icon = data.current.weather[0].icon;
 
-    var currentCityEl = document.createElement("li");
-    currentCityEl.textContent = cityName + " " + formatDate(date);
-    currentCityEl.innerHTML = '<p>' + cityName + " " + formatDate(date) +'<span><img src=./assets/icons/' + icon + '.png></span></p>';
-    currentWeatherEl.appendChild(currentCityEl);
-
+    var currentCityEl = document.getElementById("city-name")
+    currentCityEl.append(" " + formatDate(date) + " ");
+    currentCityEl.innerHTML += `<span><img src=./assets/icons/` + icon + `.png></span></p>`;
 
     var currentTempEl = document.createElement("li");
-    currentTempEl.textContent = temp;
+    currentTempEl.textContent = "Temp:" + " " + temp;
     currentWeatherEl.appendChild(currentTempEl);
 
     var currentWindEl = document.createElement("li");
-    currentWindEl.textContent = wind;
+    currentWindEl.textContent = "Wind:" + " " + wind;
     currentWeatherEl.appendChild(currentWindEl);
 
     var currentHumidityEl = document.createElement("li");
-    currentHumidityEl.textContent = humidity;
+    currentHumidityEl.textContent = "Humiditiy:" + " " + humidity;
     currentWeatherEl.appendChild(currentHumidityEl);
 
     var currentUviEl = document.createElement("li");
-    currentUviEl.textContent = uvi;
+    currentUviEl.textContent = "UV Index:" + " " + uvi;
     currentWeatherEl.appendChild(currentUviEl);
 }
 
@@ -87,9 +85,15 @@ var formSubmitHandler = function (event) {
     if (city) {
         getCityCoord(city);
         cityInputEl.value = "";
+        var currentCityEl = document.createElement("li");
+        currentCityEl.id = "city-name";
+        currentCityEl.textContent = city;
+        currentWeatherEl.appendChild(currentCityEl);
     } else {
         alert("Please enter a city");
     }
+
+    
 };
 
 // listen for submit button click
