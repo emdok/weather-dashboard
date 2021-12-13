@@ -31,3 +31,12 @@ ul {
 .extreme {
     background-color: blueviolet;
 }
+
+.city-icon img {
+    width: 10%;
+}
+
+.card-deck .card {
+    margin-right: 0px;
+    margin-left: 0px;;
+}

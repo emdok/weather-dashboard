@@ -63,7 +63,7 @@ var currentWeatherDisplay = function (data, city) {
     var icon = data.current.weather[0].icon;
 
     var currentCityEl = document.getElementById("city-name")
-    currentCityEl.innerHTML = `<span>${city} ${formatDate(date)}<img src=./assets/icons/` + icon + `.png></span></p>`;
+    currentCityEl.innerHTML = `${city} ${formatDate(date)}<span class="city-icon"><img src=./assets/icons/` + icon + `.png></span>`;
 
     currentWeatherEl.innerHTML += `<li class="list-group-item">Temp: ${temp} F</li>
     <li class="list-group-item">Wind: ${wind}</li>
