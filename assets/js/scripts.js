@@ -68,9 +68,30 @@ var currentWeatherDisplay = function (data, city) {
     currentWeatherEl.innerHTML += `<li class="list-group-item">Temp: ${temp} F</li>
     <li class="list-group-item">Wind: ${wind}</li>
     <li class="list-group-item">Humidity: ${humidity}</li
-    ><li class="list-group-item">UV Index: ${uvi}</li>`;
+    ><li id="uvi">UV Index: ${uvi}</li>`;
+
+    uvIndexColor(uvi);
+
 };
 
+// Update background color of UV Index based on value
+function uvIndexColor(index) {
+    var uviEl = document.getElementById("uvi");
+
+    if (index <= 2 ) {
+        uviEl.className = "list-group-item bg-success";
+    } else if (index <= 5 ) {
+        uviEl.className = "list-group-item bg-warning";
+    } else if (index <= 7) {
+       uviEl.className = "list-group-item bg-danger";
+    } else if (index <= 10) {
+        uviEl.className = "list-group-item bg-dark text-white";
+    } else {
+        uviEl.className = "list-group-item extreme text-white";
+    }
+};
+
+// display the 5 day forecast
 var fiveDayForecastDisplay = function(data) {
     var cardDeckEl = document.querySelector(".card-deck");
     cardDeckEl.innerHTML = "";
@@ -129,6 +150,7 @@ var formSubmitHandler = function (event) {
     }
 };
 
+// Function to handle clicking a recently search item
 var recentSearchClickHandler = function(event) {
     event.preventDefault();
 
