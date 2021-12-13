@@ -7,6 +7,8 @@ var recentSearch = [];
 
 
 var recentSearchHistory = function() {
+    searchHistoryEl.innerHTML = "";
+
     if (localStorage.getItem("city")) {
         recentSearch = JSON.parse(localStorage.getItem("city"));
 
@@ -112,6 +114,7 @@ var formSubmitHandler = function (event) {
 
     recentSearch.push(city);
     localStorage.setItem("city", JSON.stringify(recentSearch));
+    recentSearchHistory();
 
     if (city) {
         getCityCoord(city);
