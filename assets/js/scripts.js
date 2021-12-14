@@ -103,7 +103,7 @@ var fiveDayForecastDisplay = function(data) {
         var wind = data.daily[i].wind_speed;
 
         console.log(date);
-        cardDeckEl.innerHTML += `<div class="col-md-3 col-sm-12">
+        cardDeckEl.innerHTML += `
         <div class="card">
         <div class="card-body text-center">
           <h5 class="card-title">${date}</h5>
