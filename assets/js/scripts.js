@@ -6,7 +6,7 @@ var searchHistoryEl = document.querySelector(".recent-search");
 var recentSearch = [];
 
 
-var recentSearchHistory = function() {
+var recentSearchHistory = function () {
     searchHistoryEl.innerHTML = "";
 
     if (localStorage.getItem("city")) {
@@ -77,12 +77,12 @@ var currentWeatherDisplay = function (data, city) {
 function uvIndexColor(index) {
     var uviEl = document.getElementById("uvi");
 
-    if (index <= 2 ) {
+    if (index <= 2) {
         uviEl.className = "list-group-item bg-success";
-    } else if (index <= 5 ) {
+    } else if (index <= 5) {
         uviEl.className = "list-group-item bg-warning";
     } else if (index <= 7) {
-       uviEl.className = "list-group-item bg-danger";
+        uviEl.className = "list-group-item bg-danger";
     } else if (index <= 10) {
         uviEl.className = "list-group-item bg-dark text-white";
     } else {
@@ -91,7 +91,7 @@ function uvIndexColor(index) {
 };
 
 // display the 5 day forecast
-var fiveDayForecastDisplay = function(data) {
+var fiveDayForecastDisplay = function (data) {
     var cardDeckEl = document.querySelector(".forecast");
     cardDeckEl.innerHTML = "";
     for (var i = 1; i < 6; i++) {
@@ -151,7 +151,7 @@ var formSubmitHandler = function (event) {
 };
 
 // Function to handle clicking a recently search item
-var recentSearchClickHandler = function(event) {
+var recentSearchClickHandler = function (event) {
     event.preventDefault();
 
     currentWeatherEl.innerHTML = "";
