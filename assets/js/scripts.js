@@ -42,7 +42,6 @@ var getForecastByCity = function (data, city) {
     fetch(forecastQueryURL).then(function (response) {
         if (response.ok) {
             response.json().then(function (data) {
-                console.log(data);
                 currentWeatherDisplay(data, city);
                 fiveDayForecastDisplay(data);
             });
@@ -102,7 +101,6 @@ var fiveDayForecastDisplay = function(data) {
         var humidity = data.daily[i].humidity;
         var wind = data.daily[i].wind_speed;
 
-        console.log(date);
         cardDeckEl.innerHTML += `
         <div class="card">
         <div class="card-body text-center">
