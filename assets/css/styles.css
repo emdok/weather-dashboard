@@ -11,10 +11,6 @@ form {
     border-bottom: 1px solid;
 }
 
-ul {
-    padding-left: 0px;
-}
-
 .margin-btm {
     margin-bottom: 20px;
 }
@@ -36,7 +32,11 @@ ul {
     width: 10%;
 }
 
-.card-deck .card {
-    margin-right: 0px;
-    margin-left: 0px;;
+.img-width {
+    width: 50%;
+}
+
+.card-body {
+    padding: .5rem;
+    background-color: #EFFBF9;
 }

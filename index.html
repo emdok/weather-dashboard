@@ -5,7 +5,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="./assets/css/styles.css">
     <title>Weather Dashboard</title>
@@ -18,35 +19,37 @@
     <main>
         <div class="container">
             <div class="row">
-                <div class="sidebar col-md-3">
-                    <div class="search row">
-                        <div class="container">
-                            <h2 class="row full-width">Search for a City:</h2>
-                            <form class="row margin-btm" id="city-form">
-                                <div class="container">
-                                    <input class="row form-control margin-btm" type="search" id="city-search" name="city-search" placeholder="City Name">
-                                    <button class="row btn btn-primary full-width margin-btm">Search</button>
-                                </div>
-                            </form>
-                            <div class="row recent-search list-group">
-
+                <div class="sidebar col-md-3 col-sm-12">
+                    <div class="search container">
+                        <div class="row">
+                            <h2 class=>Search for a City:</h2>
+                            <div class="margin-btm full-width">
+                                <form id="city-form">
+                                    <input class="form-control margin-btm" type="search" id="city-search"
+                                        name="city-search" placeholder="City Name">
+                                    <button class="btn btn-primary full-width margin-btm">Search</button>
+                                </form>
                             </div>
                         </div>
-                    </div>
+                        <div class="row recent-search list-group margin-btm">
 
+                        </div>
+                    </div>
                 </div>
-                <div class="col-md-9 col-sm-1">
+                <div class="col-md-9 col-sm-12">
                     <div class="container">
                         <div class="row">
-                            <div class="current-weather col">
+                            <div class="current-weather justify-content-center col-12">
                                 <ul id="current-weather-list">
 
                                 </ul>
                             </div>
                         </div>
-                        <div class="row justify-content-center">
-                            <div class="card-deck col">
-                                
+                        <div class="row">
+                            <div class="card-deck justify-content-center col-12">
+                                <div class="forecast row">
+
+                                </div>
                             </div>
                         </div>
                     </div>

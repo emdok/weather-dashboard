@@ -93,7 +93,7 @@ function uvIndexColor(index) {
 
 // display the 5 day forecast
 var fiveDayForecastDisplay = function(data) {
-    var cardDeckEl = document.querySelector(".card-deck");
+    var cardDeckEl = document.querySelector(".forecast");
     cardDeckEl.innerHTML = "";
     for (var i = 1; i < 6; i++) {
         var date = formatDate(data.daily[i].dt);
@@ -103,14 +103,16 @@ var fiveDayForecastDisplay = function(data) {
         var wind = data.daily[i].wind_speed;
 
         console.log(date);
-        cardDeckEl.innerHTML += `<div class="card no-margin">
-        <div class="card-body">
+        cardDeckEl.innerHTML += `<div class="col-md-3 col-sm-12">
+        <div class="card">
+        <div class="card-body text-center">
           <h5 class="card-title">${date}</h5>
-          <img class="card-img-top" src="./assets/icons/${icon}.png" alt="Card image cap">
+          <img class="card-img-top img-width" src="./assets/icons/${icon}.png" alt="Card image cap">
           <p>Temp: ${temp}</p>
           <p>Wind: ${wind}</p>
           <p>Humidity: ${humidity}</p>
           </div>
+        </div>  
         </div>`
     }
 }
